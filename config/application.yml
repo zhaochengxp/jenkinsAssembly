@@ -1,0 +1,19 @@
+server:
+  uri-encoding: utf-8
+#  servlet:
+#    context-path: jenkinsAssembly
+spring:
+  http:
+    multipart:
+      max-file-size: 100Mb
+      max-request-size: 100Mb
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  profiles:
+    active: dev
+#    include: url
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8

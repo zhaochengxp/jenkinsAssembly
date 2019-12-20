@@ -1,0 +1,48 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+    <id>bin</id>
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <!--<dependencySets>-->
+        <!--<dependencySet>-->
+            <!--<useProjectArtifact>false</useProjectArtifact>-->
+            <!--<outputDirectory>/${artifactId}/lib</outputDirectory>-->
+            <!--<unpack>false</unpack>-->
+        <!--</dependencySet>-->
+    <!--</dependencySets>-->
+    <fileSets>
+        <fileSet>
+            <directory>${project.basedir}/bin</directory>
+            <outputDirectory>/${artifactId}/bin</outputDirectory>
+            <lineEnding>unix</lineEnding>
+            <fileMode>744</fileMode>
+            <includes>
+                <include>*.sh</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>${project.basedir}/config</directory>
+            <outputDirectory>/${artifactId}/config</outputDirectory>
+            <lineEnding>unix</lineEnding>
+            <fileMode>644</fileMode>
+            <includes>
+                <include>*.*</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/logs</directory>
+            <outputDirectory>/${artifactId}/logs</outputDirectory>
+            <lineEnding>unix</lineEnding>
+        </fileSet>
+        <!-- lib下的jar包不打入tar包里，插件这样打包会报错 -->
+       <fileSet>
+             <directory>${project.basedir}/target</directory>
+             <outputDirectory>/${artifactId}/lib</outputDirectory>
+             <includes>
+                 <include>*.jar</include>
+             </includes>
+         </fileSet>
+    </fileSets>
+</assembly>
