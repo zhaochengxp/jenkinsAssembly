@@ -42,11 +42,6 @@ fi
 (nohup ${a_new}/bin/java -server \
                    -Dname=${Master_name} \
                    -Dspring.config.location=../config/ \
-#                   -Dspring.profiles.active=test \
-                   -Dspring.profiles.active=dev \
-                   -Xmx1024m \
-                   -Xms1024m \
-                   -Xmn512m\
                    -jar ./../lib/jenkinsAssembly.jar\
                    >../nohup 2>&1 &)
 
