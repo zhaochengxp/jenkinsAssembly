@@ -20,4 +20,9 @@ public class TestController {
         return "接口测试";
     }
 
+    @GetMapping("/test2")
+    public String test2(){
+        return "jenkins接口测试";
+    }
+
 }
